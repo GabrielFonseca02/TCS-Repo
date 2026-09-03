@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClimaQC — Relatório de Auditoria</title>
+</head>
+<body>
+
+<header>
+  <p>ClimaQC</p>
+  <nav aria-label="Navegação principal">
+    <ul>
+      <li><a href="index.html">Painel</a></li>
+      <li><a href="conjuntos.html">Conjuntos de Dados</a></li>
+      <li><a href="historico.html">Histórico</a></li>
+      <li><a href="login.html">Sair</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Relatório de auditoria — Precipitação 2024 — Brasília</h1>
+  <p><a href="conjunto-detalhe.html">Voltar para o conjunto de dados</a></p>
+
+  <section aria-labelledby="resumo-titulo">
+    <h2 id="resumo-titulo">Resumo</h2>
+    <dl>
+      <dt>Total de registros</dt>
+      <dd>8.784</dd>
+
+      <dt>Total de ocorrências</dt>
+      <dd>312</dd>
+
+      <dt>Percentual de completude</dt>
+      <dd>96,4%</dd>
+
+      <dt>Data do processamento</dt>
+      <dd>03/03/2026</dd>
+    </dl>
+  </section>
+
+  <section aria-labelledby="composicao-titulo">
+    <h2 id="composicao-titulo">Composição das ocorrências por motivo</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th scope="col">Motivo</th>
+          <th scope="col">Quantidade</th>
+          <th scope="col">Percentual</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Valores faltantes</td>
+          <td>168</td>
+          <td>53,8%</td>
+        </tr>
+        <tr>
+          <td>Lacunas temporais</td>
+          <td>94</td>
+          <td>30,1%</td>
+        </tr>
+        <tr>
+          <td>Valores fisicamente impossíveis</td>
+          <td>37</td>
+          <td>11,9%</td>
+        </tr>
+        <tr>
+          <td>Registros duplicados</td>
+          <td>13</td>
+          <td>4,2%</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section aria-labelledby="variavel-titulo">
+    <h2 id="variavel-titulo">Distribuição das falhas por variável</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th scope="col">Variável</th>
+          <th scope="col">Ocorrências</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Precipitação</td>
+          <td>312</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section aria-labelledby="periodo-titulo">
+    <h2 id="periodo-titulo">Distribuição das falhas por período</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th scope="col">Mês</th>
+          <th scope="col">Ocorrências</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Janeiro</td><td>18</td></tr>
+        <tr><td>Fevereiro</td><td>22</td></tr>
+        <tr><td>Março</td><td>96</td></tr>
+        <tr><td>Abril</td><td>31</td></tr>
+        <tr><td>Maio</td><td>19</td></tr>
+        <tr><td>Junho</td><td>14</td></tr>
+        <tr><td>Julho</td><td>27</td></tr>
+        <tr><td>Agosto</td><td>21</td></tr>
+        <tr><td>Setembro</td><td>16</td></tr>
+        <tr><td>Outubro</td><td>17</td></tr>
+        <tr><td>Novembro</td><td>15</td></tr>
+        <tr><td>Dezembro</td><td>16</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section aria-labelledby="exportar-titulo">
+    <h2 id="exportar-titulo">Exportação</h2>
+    <ul>
+      <li><a href="#">Exportar série tratada (CSV)</a></li>
+      <li><a href="#">Exportar relatório (PDF)</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer>
+  <p>ClimaQC — Protótipo em desenvolvimento</p>
+</footer>
+
+</body>
+</html>

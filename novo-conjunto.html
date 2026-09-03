@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClimaQC — Adicionar Conjunto de Dados</title>
+</head>
+<body>
+
+<header>
+  <p>ClimaQC</p>
+  <nav aria-label="Navegação principal">
+    <ul>
+      <li><a href="index.html">Painel</a></li>
+      <li><a href="conjuntos.html" aria-current="page">Conjuntos de Dados</a></li>
+      <li><a href="historico.html">Histórico</a></li>
+      <li><a href="login.html">Sair</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Adicionar novo conjunto de dados</h1>
+
+  <form action="conjuntos.html" method="post" enctype="multipart/form-data">
+    <fieldset>
+      <legend>Dados do conjunto</legend>
+
+      <p>
+        <label for="nome">Nome do conjunto</label><br>
+        <input type="text" id="nome" name="nome" placeholder="Ex.: Precipitação 2024 — Brasília" required>
+      </p>
+
+      <p>
+        <label for="estacao">Estação INMET</label><br>
+        <select id="estacao" name="estacao" required>
+          <option value="">Selecione a estação</option>
+          <option value="A001">A001 — Brasília</option>
+          <option value="A652">A652 — Cruzeiro do Sul</option>
+          <option value="A701">A701 — Parati</option>
+          <option value="A728">A728 — Correntina</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="variavel">Variável</label><br>
+        <select id="variavel" name="variavel" required>
+          <option value="">Selecione a variável</option>
+          <option value="precipitacao">Precipitação</option>
+          <option value="temperatura">Temperatura</option>
+        </select>
+      </p>
+
+      <p>
+        <label for="arquivo">Arquivo CSV do INMET</label><br>
+        <input type="file" id="arquivo" name="arquivo" accept=".csv" required>
+      </p>
+
+      <p>
+        <label for="observacoes">Observações (opcional)</label><br>
+        <textarea id="observacoes" name="observacoes" rows="4" cols="50"></textarea>
+      </p>
+
+      <p>
+        <button type="submit">Enviar</button>
+        <a href="conjuntos.html">Cancelar</a>
+      </p>
+    </fieldset>
+  </form>
+</main>
+
+<footer>
+  <p>ClimaQC — Protótipo em desenvolvimento</p>
+</footer>
+
+</body>
+</html>

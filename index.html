@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClimaQC — Painel</title>
+</head>
+<body>
+
+<header>
+  <p>ClimaQC</p>
+  <nav aria-label="Navegação principal">
+    <ul>
+      <li><a href="index.html" aria-current="page">Painel</a></li>
+      <li><a href="conjuntos.html">Conjuntos de Dados</a></li>
+      <li><a href="historico.html">Histórico</a></li>
+      <li><a href="login.html">Sair</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Painel</h1>
+  <p>Bem-vindo(a), Ana Souza.</p>
+
+  <section aria-labelledby="indicadores-titulo">
+    <h2 id="indicadores-titulo">Indicadores</h2>
+
+    <article>
+      <h3>Completude geral</h3>
+      <p>87% dos registros carregados estão completos.</p>
+    </article>
+
+    <article>
+      <h3>Estações com qualidade insuficiente</h3>
+      <p>2 estações abaixo do limite aceitável de completude: A652 (Cruzeiro do Sul) e A728 (Correntina).</p>
+    </article>
+
+    <article>
+      <h3>Concentração de falhas recente</h3>
+      <p>Aumento de lacunas temporais em julho de 2026, concentrado na estação A652.</p>
+    </article>
+  </section>
+
+  <section aria-labelledby="atalhos-titulo">
+    <h2 id="atalhos-titulo">Atalhos</h2>
+    <ul>
+      <li><a href="novo-conjunto.html">Adicionar conjunto de dados</a></li>
+      <li><a href="conjuntos.html">Ver conjuntos de dados</a></li>
+      <li><a href="historico.html">Ver histórico de processamentos</a></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="recentes-titulo">
+    <h2 id="recentes-titulo">Conjuntos recentes</h2>
+    <table border="1">
+      <caption>Últimos conjuntos de dados carregados</caption>
+      <thead>
+        <tr>
+          <th scope="col">Nome do conjunto</th>
+          <th scope="col">Estação</th>
+          <th scope="col">Status</th>
+          <th scope="col">Ação</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Precipitação 2024 — Brasília</td>
+          <td>A001 — Brasília</td>
+          <td>Processado</td>
+          <td><a href="conjunto-detalhe.html">Ver detalhes</a></td>
+        </tr>
+        <tr>
+          <td>Temperatura 2024 — Cruzeiro do Sul</td>
+          <td>A652 — Cruzeiro do Sul</td>
+          <td>Pendente</td>
+          <td><a href="conjunto-detalhe.html">Ver detalhes</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<footer>
+  <p>ClimaQC — Protótipo em desenvolvimento</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClimaQC — Detalhe do Conjunto de Dados</title>
+</head>
+<body>
+
+<header>
+  <p>ClimaQC</p>
+  <nav aria-label="Navegação principal">
+    <ul>
+      <li><a href="index.html">Painel</a></li>
+      <li><a href="conjuntos.html" aria-current="page">Conjuntos de Dados</a></li>
+      <li><a href="historico.html">Histórico</a></li>
+      <li><a href="login.html">Sair</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Precipitação 2024 — Brasília</h1>
+  <p><a href="conjuntos.html">Voltar para conjuntos de dados</a></p>
+
+  <section aria-labelledby="metadados-titulo">
+    <h2 id="metadados-titulo">Metadados</h2>
+    <dl>
+      <dt>Estação</dt>
+      <dd>A001 — Brasília</dd>
+
+      <dt>Variável</dt>
+      <dd>Precipitação</dd>
+
+      <dt>Período</dt>
+      <dd>01/01/2024 a 31/12/2024</dd>
+
+      <dt>Data de upload</dt>
+      <dd>03/03/2026</dd>
+
+      <dt>Total de registros</dt>
+      <dd>8.784</dd>
+
+      <dt>Status</dt>
+      <dd>Processado</dd>
+    </dl>
+
+    <form action="conjunto-detalhe.html" method="post">
+      <fieldset>
+        <legend>Editar metadados</legend>
+
+        <p>
+          <label for="nome">Nome do conjunto</label><br>
+          <input type="text" id="nome" name="nome" value="Precipitação 2024 — Brasília">
+        </p>
+
+        <p>
+          <label for="observacoes">Observações</label><br>
+          <textarea id="observacoes" name="observacoes" rows="3" cols="50">Série anual completa, primeira carga do conjunto.</textarea>
+        </p>
+
+        <p>
+          <button type="submit">Salvar alterações</button>
+        </p>
+      </fieldset>
+    </form>
+  </section>
+
+  <section aria-labelledby="registros-titulo">
+    <h2 id="registros-titulo">Registros</h2>
+    <table border="1">
+      <caption>Amostra dos registros do conjunto</caption>
+      <thead>
+        <tr>
+          <th scope="col">Data</th>
+          <th scope="col">Hora</th>
+          <th scope="col">Precipitação (mm)</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>15/03/2024</td>
+          <td>00:00</td>
+          <td>0,0</td>
+          <td>Ok</td>
+        </tr>
+        <tr>
+          <td>15/03/2024</td>
+          <td>01:00</td>
+          <td>2,4</td>
+          <td>Ok</td>
+        </tr>
+        <tr>
+          <td>15/03/2024</td>
+          <td>02:00</td>
+          <td>—</td>
+          <td>Marcado — valor faltante</td>
+        </tr>
+        <tr>
+          <td>15/03/2024</td>
+          <td>03:00</td>
+          <td>999,9</td>
+          <td>Marcado — valor impossível</td>
+        </tr>
+        <tr>
+          <td>15/03/2024</td>
+          <td>05:00</td>
+          <td>1,2</td>
+          <td>Marcado — lacuna temporal anterior</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section aria-labelledby="acoes-titulo">
+    <h2 id="acoes-titulo">Ações</h2>
+
+    <form action="relatorio.html" method="get">
+      <button type="submit">Gerar relatório de auditoria</button>
+    </form>
+
+    <form action="conjuntos.html" method="post">
+      <button type="submit">Excluir conjunto de dados</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <p>ClimaQC — Protótipo em desenvolvimento</p>
+</footer>
+
+</body>
+</html>
