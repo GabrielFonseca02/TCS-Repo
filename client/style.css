@@ -1,0 +1,328 @@
+/* ClimaQC — Etapa 03
+   Inclua no <head> de todas as páginas:
+   <link rel="stylesheet" href="style.css">
+
+   Layout: Flexbox e Grid, sem float ou posicionamento absoluto.
+   As tabelas representam dados e preservam sua estrutura semântica.
+   Breakpoints: 1024px (tablet) e 600px (smartphone).
+*/
+
+/* 1. Cores, medidas e base */
+:root {
+  --fundo: #f3f6fa;
+  --superficie: #ffffff;
+  --texto: #1c3044;
+  --secundario: #516477;
+  --primaria: #086b63;
+  --primaria-hover: #05534d;
+  --primaria-suave: #e7f4f0;
+  --borda: #d5dfe8;
+  --cabecalho: #142f43;
+  --perigo: #a32c34;
+  --raio: 12px;
+  --espaco: 24px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1, h2, h3, p, ul, dl, dd { margin: 0; }
+h1, h2, h3 { line-height: 1.3; }
+h1 { font-size: clamp(1.65rem, 3vw, 2.25rem); letter-spacing: -0.035em; }
+h2 { font-size: 1.2rem; }
+h3 { font-size: 1rem; }
+p { color: var(--secundario); }
+a { color: var(--primaria); text-underline-offset: 4px; }
+a:hover { color: var(--primaria-hover); }
+
+/* Foco visível para navegação pelo teclado. */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 3px solid #bb6700;
+  outline-offset: 3px;
+}
+
+/* 2. Cabeçalho e menu: Flexbox permite quebra de linha. */
+body > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  padding: 20px max(24px, calc((100% - 1200px) / 2));
+  background: var(--cabecalho);
+  color: white;
+}
+
+header > p:first-child {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+header > p + p { color: #d0dfe8; font-size: 0.9rem; }
+nav { min-width: 0; }
+nav ul {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+nav a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: #e5eef4;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+nav a:hover { background: #28485e; color: white; }
+nav a[aria-current="page"] { background: #e7f4f0; color: #07534d; font-weight: 700; }
+
+/* 3. Conteúdo e rodapé */
+main {
+  display: grid;
+  align-content: start;
+  gap: var(--espaco);
+  width: min(1200px, calc(100% - 48px));
+  margin: 40px auto;
+  flex: 1;
+  min-width: 0;
+}
+main > *, section > * { min-width: 0; }
+main > h1 + p { margin-top: -12px; }
+section {
+  display: grid;
+  gap: 20px;
+  padding: 24px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  background: var(--superficie);
+}
+body > footer {
+  display: flex;
+  justify-content: center;
+  padding: 22px 24px;
+  border-top: 1px solid var(--borda);
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+/* 4. Indicadores: Grid com três cards no desktop. */
+section[aria-labelledby="indicadores-titulo"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+#indicadores-titulo { grid-column: 1 / -1; }
+article {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px;
+  border: 1px solid var(--borda);
+  border-top: 4px solid var(--primaria);
+  border-radius: 8px;
+  background: #f7fafc;
+}
+article:first-of-type { background: var(--primaria-suave); }
+article:nth-of-type(2) { border-top-color: #a46516; }
+article:nth-of-type(3) { border-top-color: #47769e; }
+article p { font-size: 0.95rem; }
+
+/* 5. Atalhos e links de ação */
+section > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+section > ul > li { display: flex; flex: 1 1 220px; }
+section > ul a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  background: #f7fafc;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+  text-decoration: none;
+}
+section > ul a:hover { border-color: var(--primaria); background: var(--primaria-suave); }
+main > p > a[href="novo-conjunto.html"] {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: var(--primaria);
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+main > p > a[href="novo-conjunto.html"]:hover { background: var(--primaria-hover); }
+
+/* 6. Tabelas de dados: colunas podem quebrar texto em telas pequenas.
+   Não são utilizadas como técnica de layout da página. */
+table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  border: 1px solid var(--borda);
+  background: var(--superficie);
+  font-size: 0.9rem;
+}
+caption {
+  padding: 0 0 14px;
+  color: var(--secundario);
+  text-align: left;
+  font-size: 0.85rem;
+}
+th, td {
+  padding: 14px 16px;
+  border: 0;
+  border-bottom: 1px solid var(--borda);
+  text-align: left;
+  vertical-align: middle;
+  overflow-wrap: anywhere;
+}
+th { background: #eaf0f5; color: #344e63; font-weight: 700; }
+tbody tr:nth-child(even) { background: #f8fafc; }
+tbody tr:hover { background: var(--primaria-suave); }
+td a { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; }
+
+/* 7. Formulários: Grid para campos e Flexbox para ações.
+   :has() seleciona a estrutura dos HTMLs sem exigir novas classes. */
+form { display: grid; gap: 20px; min-width: 0; }
+fieldset {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  min-width: 0;
+  margin: 0;
+  padding: 24px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  background: var(--superficie);
+}
+legend { padding: 0 8px; font-weight: 700; }
+fieldset p { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+/* A separação entre label e campo passa a ser controlada pelo gap. */
+fieldset br { display: none; }
+label { color: var(--texto); font-size: 0.9rem; font-weight: 700; }
+input, select, textarea, button { font: inherit; }
+input, select, textarea {
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: 1px solid #9eafbe;
+  border-radius: 7px;
+  background: white;
+  color: var(--texto);
+}
+input::placeholder, textarea::placeholder { color: #657585; }
+textarea { resize: vertical; }
+input[type="file"] { background: #f7fafc; font-size: 0.85rem; }
+input::file-selector-button {
+  margin-right: 10px;
+  padding: 6px 10px;
+  border: 1px solid var(--borda);
+  border-radius: 4px;
+  background: var(--primaria-suave);
+  color: var(--primaria-hover);
+  cursor: pointer;
+}
+fieldset p:has(textarea), fieldset p:has(button) { grid-column: 1 / -1; }
+fieldset p:has(button) { flex-direction: row; align-items: center; flex-wrap: wrap; gap: 16px; }
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 10px 20px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: var(--primaria);
+  color: white;
+  font-weight: 700;
+  line-height: 1.4;
+  cursor: pointer;
+}
+button:hover { background: var(--primaria-hover); }
+button:disabled { background: #dde4ea; color: #516477; cursor: not-allowed; }
+
+/* Login e cadastro são reconhecidos pela presença do campo de senha. */
+main:has(input[type="password"]) { max-width: 520px; }
+main:has(input[type="password"]) fieldset { grid-template-columns: minmax(0, 1fr); }
+main:has(input[type="password"]) button { width: 100%; }
+main:has(input[type="password"]) > p { text-align: center; }
+
+/* 8. Metadados e ações do conjunto */
+dl { display: grid; grid-template-columns: minmax(130px, 1fr) minmax(0, 3fr); }
+dt, dd { padding: 10px 0; border-bottom: 1px solid var(--borda); overflow-wrap: anywhere; }
+dt { color: var(--secundario); padding-right: 16px; }
+dd { font-weight: 700; }
+section[aria-labelledby="acoes-titulo"] { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+#acoes-titulo { flex-basis: 100%; }
+section[aria-labelledby="acoes-titulo"] form[method="post"] button {
+  border-color: #dbaeb1;
+  background: #fff5f5;
+  color: var(--perigo);
+}
+section[aria-labelledby="acoes-titulo"] form[method="post"] button:hover { background: #fce2e4; }
+
+/* 9. Tablet: menu em outra linha e indicadores em duas colunas. */
+@media (max-width: 1024px) {
+  body > header { align-items: flex-start; flex-direction: column; gap: 12px; }
+  nav { width: 100%; }
+  nav ul { justify-content: flex-start; }
+  main { margin: 28px auto; }
+  section[aria-labelledby="indicadores-titulo"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  section[aria-labelledby="indicadores-titulo"] article:last-child { grid-column: 1 / -1; }
+  th, td { padding: 12px 10px; }
+}
+
+/* 10. Smartphone: menu 2x2, campos e cards em uma coluna. */
+@media (max-width: 600px) {
+  :root { --espaco: 18px; }
+  body > header { padding: 16px; }
+  nav ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; }
+  nav a { height: 100%; padding: 8px; text-align: center; font-size: 0.82rem; }
+  main { width: calc(100% - 32px); margin: 24px auto; }
+  section { padding: 16px; gap: 16px; }
+  section[aria-labelledby="indicadores-titulo"] { grid-template-columns: minmax(0, 1fr); }
+  article { padding: 16px; }
+  section > ul { flex-direction: column; }
+  section > ul > li { flex: auto; }
+  fieldset { grid-template-columns: minmax(0, 1fr); padding: 16px; gap: 16px; }
+  fieldset p:has(button) { align-items: stretch; flex-direction: column; }
+  fieldset p:has(button) > a { display: flex; justify-content: center; align-items: center; min-height: 44px; }
+  dl { grid-template-columns: minmax(0, 1fr); }
+  dt { padding-bottom: 0; border-bottom: 0; font-size: 0.85rem; }
+  dd { padding-top: 2px; }
+  section[aria-labelledby="acoes-titulo"] form { width: 100%; }
+  table { font-size: 0.75rem; line-height: 1.5; }
+  th, td { padding: 10px 5px; }
+  caption { font-size: 0.8rem; }
+}
