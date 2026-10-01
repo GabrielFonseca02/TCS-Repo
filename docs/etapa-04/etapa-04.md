@@ -164,7 +164,7 @@ Esta etapa funciona no navegador e não exige backend.
 ![alt text](image-4.png)
 
 ### Novo conjunto com arquivo inválido
-![alt text](image-6.png)
+![alt textclear](image-6.png)
 
 ### Novo conjunto com formulário válido
 ![alt text](image-5.png)
